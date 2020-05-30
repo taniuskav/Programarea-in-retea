@@ -1,0 +1,23 @@
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\obj\x86\Debug\WebSockets.csprojResolveAssemblyReference.cache
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\bin\Debug\WebSockets.exe
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\bin\Debug\WebSockets.pdb
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\bin\Debug\Fleck.dll
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\bin\Debug\Fleck.pdb
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\obj\x86\Debug\WebSockets.exe
+E:\Dropbox\Private\UTM\Anul III\Semestrul II\Programarea în Rețea\Laboratoare\Laboratorul 7i\WebSockets\WebSockets\obj\x86\Debug\WebSockets.pdb
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.exe
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.pdb
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\WebSockets.exe
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\WebSockets.pdb
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\Fleck.dll
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\Fleck.pdb
+D:\Dropbox\UTM\Semestrul6\PR\lab7_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.csprojResolveAssemblyReference.cache
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.exe
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.pdb
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\WebSockets.exe
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\WebSockets.pdb
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\Fleck.dll
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\bin\Debug\Fleck.pdb
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\PR\lab7_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.csprojResolveAssemblyReference.cache
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\Laborator 5\lab5_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.exe
+C:\Users\Andr3i\Desktop\Univer\Programarea in Retea\Laborator 5\lab5_PR\WebSockets\WebSockets\obj\x86\Debug\WebSockets.pdb

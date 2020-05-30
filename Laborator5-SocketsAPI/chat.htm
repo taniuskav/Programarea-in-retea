@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lab5PR</title>
+        <style type="text/css">
+            .container
+            {
+                width: 800px;
+                margin: 0 left;
+            }
+
+            #list-messages {
+                height: 400px;
+                width: 755px;
+                background-color: #FDFDFD;
+                border: 1px solid #000000;
+                overflow: auto;
+                padding: 10px;
+            }
+
+            form {
+                margin-top: 10px;
+                overflow: hidden;
+                font: 
+            }
+            input {
+                padding: 7px 10px;
+                float: left;
+                margin: 0;
+                display: inline-block;
+                border: 1px solid #000000;
+                outline: none;
+                -webkit-border-radius: 10px;
+                -khtml-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+            }
+            input:not([type="text"]) {
+                cursor: pointer;
+            }
+
+            input:not([type="text"]):hover {
+                background-color: #4a92fd;
+                color: white;
+            }
+            .nick {
+                width: 10%;
+                float: left;
+            }
+            .message {
+                width: 60%;
+                margin-left: 5px;
+                -webkit-border-radius: 10px;
+                -khtml-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+            }
+            .send {
+                width: 10%;
+                margin-left: 5px;
+                -webkit-border-radius: 10px;
+                -khtml-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+            }
+			.connection {
+                width: 10%;
+                display: block;
+                margin-left: 5px;
+                -webkit-border-radius: 10px;
+                -khtml-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .user {
+                font-style: italic;
+            }
+            .time {
+                color: gray;
+            }
+            
+        </style>
+	</head>
+    <body>
+        <div class="container">
+            <div id="list-messages"></div>
+            <form action="#" method="post" id="form">
+                <input class="nick" type="text" id="nick" placeholder="Name" />
+                <input class="message" type="text" id="message" placeholder="Type here" />
+                <input class="send" type="submit" value="Send" />
+                <input class="connection" type="button" id="connect" value="Connect"/>
+            </form>
+        </div>
+        <script>
+            (function() {
+            // check websockets support
+            var socket = window.WebSocket || window.MozWebSocket;
+            var nick = document.getElementById('nick');
+            var nickName;
+            var now = new Date();
+            var ip = 'ws://localhost:30000';
+
+            function beginConn(){
+                // get message inputs
+                var form = document.getElementById('form');
+
+                var msg = document.getElementById('message');
+                var list = document.getElementById('list-messages');
+
+                list.innerHTML += "Trying to connect to " + ip + "</br>";
+
+                // create a new WebSocket and connect
+                window.ws = new socket(ip);
+
+                // when connection is established
+                ws.onopen = function() {
+                    list.innerHTML += "Connection succeeded! </br>";
+                    var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+                    ws.send("1" + "\0" + nickName + "\0" + time);
+                };
+
+                // get message from server
+                ws.onmessage = function(e) {
+                    var now = new Date();
+                    var type = e.data.substring(0,1);
+                    var parts = e.data.split('\0');
+
+                    switch(type) {
+                        // user came online
+                        case "1":
+                            list.innerHTML += "<span class='user'>" + parts[1] + " : </span><span class='time'>" +
+                            parts[2] + " </span>" + parts[3] + "</br>";
+                            break;
+
+                        // user leaves the net
+                        case "2":
+                            list.innerHTML += "<span class='user'>" + parts[1] + " : </span><span class='time'>" +
+                            parts[2] + " </span>" + parts[3] + "</br>";
+                            break;
+
+                        // private message
+                        case "/":
+                            list.innerHTML += "<span class='user'>" + parts[2] + " :</span>" + "<span class='user'>@" + parts[1] +
+                            "</span><span class='time'>" + parts[3] + " :</span>" + parts[4] + "</br>";
+                            break;
+
+                        // message to all users
+                        default:
+                            list.innerHTML += "<span class='user'>" + parts[0] + " :</span><span class='time'>" +
+                            parts[1] + " </span>" + parts[2] + "</br>";
+                            break;
+                    }
+                };
+
+                ws.onclose = function() {
+                    list.innerHTML += "Connection closed. </br>";
+                };
+
+                form.addEventListener('submit', function(e){
+                    e.preventDefault();
+
+                    // get data from message input field
+                    var message = msg.value;
+
+                    // get current time
+                    var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
+                    // send a private message
+                    if(message.substring(0, 1) === "/") {
+                        var user = message.match(/[^\/]\w+/i);
+                        message = message.match(/[^\/\w+].+/i);
+
+                        // for the message structure
+                        var data = "/" + "\0" + user + "\0" + nickName + "\0" + time + "\0" + message;
+                        ws.send(data);
+                    }
+
+                    // send a public message
+                    else {
+                        message = nickName + "\0" + time + "\0" + message;
+                        ws.send(message);
+                    }
+                    msg.value = "";
+                });
+            }
+
+            var connect = document.getElementById("connect");
+            connect.addEventListener('click', function() {
+                if(connect.value === "Connect") {
+                    if(nick.value.length >= 1) {
+                        beginConn();
+                        connect.value = "Disconnect";
+                        nickName = nick.value;
+                    }
+                    else {
+                        alert("Enter your name.");
+                    }
+                }
+                else {
+                    connect.value = "Connect";
+                    var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+                    window.ws.send("2" + "\0" + nickName + "\0" + time);
+                    window.ws.close();
+                }
+            });
+        })();
+        </script>
+    </body>
+</html>
